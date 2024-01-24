@@ -1,0 +1,26 @@
+body {
+    background-color: rgb(174, 199, 219);
+    overflow-x: hidden!important;
+}
+
+.table {
+    background-color: white;
+}
+
+.nav-link {
+    color: black!important;
+}
+
+.nav-bar {
+    width: 100%;
+}
+
+.table-responsive {
+    max-height: 500px; 
+    margin-bottom: 50px;
+    box-sizing: border-box;
+}
+
+td:hover {
+    cursor: pointer;
+}
