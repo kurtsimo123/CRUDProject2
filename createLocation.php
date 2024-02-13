@@ -65,9 +65,6 @@
 	$output['data'] = [];
 	
 	mysqli_close($conn);
-
-	echo json_encode($output); 
-
-    header('Location: index.php')
-
+    header('Location: index.php');
+    exit; // Ensure that no other content is sent after the redirect
 ?>

@@ -45,9 +45,7 @@ $output['status']['description'] = "success";
 $output['status']['returnedIn'] = (microtime(true) - $executionStartTime) / 1000 . " ms";
 $output['data'] = [];
 
-mysqli_close($conn);
-
-echo json_encode($output); 
-
+mmysqli_close($conn);
 header('Location: index.php');
+exit; // Ensure that no other content is sent after the redirect
 ?>
