@@ -1,73 +1,72 @@
 <?php
 
-	// example use from browser
-	// http://localhost/companydirectory/libs/php/insertDepartment.php?name=New%20Department&locationID=<id>
+    // example use from browser
+    // http://localhost/companydirectory/libs/php/insertDepartment.php?name=New%20Department&locationID=<id>
 
-	// remove next two lines for production
-	
-	ini_set('display_errors', 'On');
-	error_reporting(E_ALL);
+    // remove next two lines for production
+    
+    ini_set('display_errors', 'On');
+    error_reporting(E_ALL);
 
-	$executionStartTime = microtime(true);
-	
-	// this includes the login details
-	
-	include("config.php");
+    $executionStartTime = microtime(true);
+    
+    // this includes the login details
+    
+    include("config.php");
 
-	header('Content-Type: application/json; charset=UTF-8');
+    header('Content-Type: application/json; charset=UTF-8');
 
-	$conn = new mysqli($cd_host, $cd_user, $cd_password, $cd_dbname, $cd_port, $cd_socket);
+    $conn = new mysqli($cd_host, $cd_user, $cd_password, $cd_dbname, $cd_port, $cd_socket);
 
-	if (mysqli_connect_errno()) {
-		
-		$output['status']['code'] = "300";
-		$output['status']['name'] = "failure";
-		$output['status']['description'] = "database unavailable";
-		$output['status']['returnedIn'] = (microtime(true) - $executionStartTime) / 1000 . " ms";
-		$output['data'] = [];
+    if (mysqli_connect_errno()) {
+        
+        $output['status']['code'] = "300";
+        $output['status']['name'] = "failure";
+        $output['status']['description'] = "database unavailable";
+        $output['status']['returnedIn'] = (microtime(true) - $executionStartTime) / 1000 . " ms";
+        $output['data'] = [];
 
-		mysqli_close($conn);
+        mysqli_close($conn);
 
-		echo json_encode($output);
+        echo json_encode($output);
 
-		exit;
+        exit;
 
-	}	
+    }   
 
-	// SQL statement accepts parameters and so is prepared to avoid SQL injection.
-	// $_REQUEST used for development / debugging. Remember to change to $_POST for production
+    // SQL statement accepts parameters and so is prepared to avoid SQL injection.
+    // $_REQUEST used for development / debugging. Remember to change to $_POST for production
 
-	$staffID = $_POST['editStaffID'];
+    $staffID = $_POST['editStaffID'];
 
-	$query = $conn->prepare('UPDATE personnel SET firstName=?, lastName=?, email=?, jobTitle=?, departmentID=? WHERE id=?');
-	$query->bind_param("ssssii", $_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['jobTitle'], $_POST['department'], $staffID);
-	$query->execute();
-	
-	if (false === $query) {
+    $query = $conn->prepare('UPDATE personnel SET firstName=?, lastName=?, email=?, jobTitle=?, departmentID=? WHERE id=?');
+    $query->bind_param("ssssii", $_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['jobTitle'], $_POST['department'], $staffID);
+    $query->execute();
+    
+    if (false === $query) {
 
-		$output['status']['code'] = "400";
-		$output['status']['name'] = "executed";
-		$output['status']['description'] = "query failed";	
-		$output['data'] = [];
+        $output['status']['code'] = "400";
+        $output['status']['name'] = "executed";
+        $output['status']['description'] = "query failed";    
+        $output['data'] = [];
 
-		mysqli_close($conn);
+        mysqli_close($conn);
 
-		echo json_encode($output); 
+        echo json_encode($output); 
 
-		exit;
+        exit;
 
-	}
+    }
 
-	$output['status']['code'] = "200";
-	$output['status']['name'] = "ok";
-	$output['status']['description'] = "success";
-	$output['status']['returnedIn'] = (microtime(true) - $executionStartTime) / 1000 . " ms";
-	$output['data'] = [];
-	
-	mysqli_close($conn);
+    $output['status']['code'] = "200";
+    $output['status']['name'] = "ok";
+    $output['status']['description'] = "success";
+    $output['status']['returnedIn'] = (microtime(true) - $executionStartTime) / 1000 . " ms";
+    $output['data'] = [];
+    
+    mysqli_close($conn);
 
-	echo json_encode($output); 
-
-    header('Location: index.php')
+    header('Location: index.php');
+    exit; // Ensure that no other content is sent after the redirect
 
 ?>

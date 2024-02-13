@@ -16,8 +16,7 @@
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center" href="./">
                 <img src="https://banner2.cleanpng.com/20180329/ele/kisspng-briefcase-computer-icons-business-bag-portfolio-5abcd6561b0999.8864492815223250781108.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top me-2">
-                <span>companydirectory</span>
-                <span class="ms-auto"><a href="statistics.php" class="nav-link">Statistics</a></span>
+                <span>companydirectory</span>                
             </a>
         </div>
     </nav>
