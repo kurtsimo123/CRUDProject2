@@ -27,8 +27,6 @@
 
 	}	
 
-	// SQL does not accept parameters and so is not prepared
-
 	$query = 'SELECT department.id as department_id, location.id as location_id, department.name as department_name, location.name as location_name FROM `department`
     left join location on department.locationID = location.id
 	ORDER BY department_name ASC;';

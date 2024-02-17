@@ -84,11 +84,9 @@ $(document).on('click', '.showStaff', function(event) {
 });
 
 let addStaffButton = document.getElementById('addStaff');
-let showStaffDetails = document.getElementById('showStaff');
 let addDepartmentButton = document.getElementById('addDepartment');
 let addLocationButton = document.getElementById('addLocation');
-let editStaffButton = document.getElementById('editButton');
-let showDepartmentDetails = document.getElementById('editButton');
+
 
 //SHOW MODALS FUNCTIONS//
 addStaffButton.addEventListener('click', function() {
@@ -102,10 +100,6 @@ addDepartmentButton.addEventListener('click', function() {
 addLocationButton.addEventListener('click', function() {
     $('#locationModal').modal("show");
 });
-
-function editStaff() {
-    $('#editModal').modal("show");
-}
 
 /////////////////////////////////////////////GET DEPARTMENTS//////////////////////////////////////////
 

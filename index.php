@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="theme-color" content="#ffffff">
     <title>companydirectory</title>
     <!--Bootstrap CSS-->
     <link rel="stylesheet" href="bootstrap-5.2.3-dist/css/bootstrap.min.css">
@@ -15,7 +17,7 @@
     <nav class="navbar bg-light">
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center" href="./">
-                <img src="https://banner2.cleanpng.com/20180329/ele/kisspng-briefcase-computer-icons-business-bag-portfolio-5abcd6561b0999.8864492815223250781108.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top me-2">
+                <img src="img/companydirectory.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top me-2">
                 <span>companydirectory</span>                
             </a>
         </div>

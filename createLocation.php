@@ -1,16 +1,10 @@
 <?php
-
-	// example use from browser
-	// http://localhost/companydirectory/libs/php/insertDepartment.php?name=New%20Department&locationID=<id>
-
-	// remove next two lines for production
 	
 	ini_set('display_errors', 'On');
 	error_reporting(E_ALL);
 
 	$executionStartTime = microtime(true);
-	
-	// this includes the login details
+
 	
 	include("config.php");
 
@@ -33,9 +27,6 @@
 		exit;
 
 	}	
-
-	// SQL statement accepts parameters and so is prepared to avoid SQL injection.
-	// $_REQUEST used for development / debugging. Remember to change to $_POST for production
 
 	$query = $conn->prepare('INSERT INTO location (name) VALUES(?)');
 
@@ -66,5 +57,5 @@
 	
 	mysqli_close($conn);
     header('Location: index.php');
-    exit; // Ensure that no other content is sent after the redirect
+    exit; 
 ?>

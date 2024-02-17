@@ -31,8 +31,6 @@ $email = $_POST['email'] ?? "";
 
 	}	
 
-	// SQL does not accept parameters and so is not prepared
-
     $query = $conn->prepare('INSERT INTO personnel (firstName, lastName, email, jobTitle, departmentID) VALUES (?,?,?,?,?)');
 
 	$query->bind_param("ssssi", $_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['jobTitle'], $_POST['department']);
@@ -62,5 +60,5 @@ $email = $_POST['email'] ?? "";
 	
 	mysqli_close($conn);
     header('Location: index.php');
-    exit; // Ensure that no other content is sent after the redirect
+    exit;
 ?>

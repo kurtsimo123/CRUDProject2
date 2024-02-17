@@ -27,8 +27,6 @@
 
 	}	
 
-	// SQL does not accept parameters and so is not prepared
-
     $locationID = $_POST['locationID'];
 
 	$query = "SELECT *  FROM `location`

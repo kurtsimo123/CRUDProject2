@@ -27,8 +27,6 @@
 
 	}	
 
-	// SQL does not accept parameters and so is not prepared
-
     $departmentID = $_POST['departmentID'];
 
 	$query = "SELECT d.id, d.name as department, d.locationID as locationID, l.name as location

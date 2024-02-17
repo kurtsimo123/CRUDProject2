@@ -47,5 +47,5 @@ $output['data'] = [];
 
 mmysqli_close($conn);
 header('Location: index.php');
-exit; // Ensure that no other content is sent after the redirect
+exit;
 ?>

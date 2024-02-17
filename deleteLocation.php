@@ -1,10 +1,4 @@
 <?php
-
-	// example use from browser
-	// use insertDepartment.php first to create new dummy record and then specify it's id in the command below
-	// http://localhost/companydirectory/libs/php/deleteDepartmentByID.php?id=<id>
-
-	// remove next two lines for production
 	
 	ini_set('display_errors', 'On');
 	error_reporting(E_ALL);
@@ -33,8 +27,6 @@
 
 	}	
 
-	// SQL statement accepts parameters and so is prepared to avoid SQL injection.
-	// $_REQUEST used for development / debugging. Remember to change to $_POST for production
 	$locationID = $_POST['locationID'];
 	$query = $conn->prepare("DELETE FROM location WHERE id = ?");
 	$query->bind_param("i", $locationID);
@@ -60,6 +52,6 @@
 	
 	mysqli_close($conn);
     header('Location: index.php');
-    exit; // Ensure that no other content is sent after the redirect
+    exit; 
 	?>
 	
